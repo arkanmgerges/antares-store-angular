@@ -1,0 +1,34 @@
+<div class="pagination-lg-fixed-top">
+  <ul class="nav nav-pills justify-content-between">
+    <li class="nav-item bg-light  d-none d-lg-flex">
+      <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle w-100 nav-link" data-toggle="dropdown">Relevance</button>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">Latest</a>
+          <a href="#" class="dropdown-item">Price - low to high</a>
+          <a href="#" class="dropdown-item">Price - high to low</a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item bg-light d-none d-lg-flex">
+      <form class="form-inline">
+        <label class="mx-1" for="viewSelect">View</label>
+        <select class="custom-select" id="viewSelect">
+          <option value="1">60</option>
+          <option value="2">100</option>
+          <option value="3">120</option>
+          <option value="4">180</option>
+          <option value="5">220</option>
+        </select>
+
+        <button class="btn btn-ouline-primary rounded-circle mx-1">&#x2190;</button>
+        <select class="custom-select mx-1" id="viewSelect">
+          <option value="1" selected>Page 1</option>
+          <option value="2">Page 2</option>
+        </select>
+        <span>of 2</span>
+        <button class="btn btn-ouline-primary rounded-circle mx-1">&#x2192;</button>
+      </form>
+    </li>
+  </ul>
+</div>

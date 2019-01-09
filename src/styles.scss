@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/bootstrap.scss";
+
+#cloth {
+  height: 1000px;
+}
+
+#filter {
+  z-index: 5;
+}
+
+#filterModal .modal-footer {
+  justify-content: center;
+}
+
+.cloth-col {
+  flex: 0 0 33%;
+  z-index: 1;
+
+  .card-img-overlay {
+    padding: 0;
+    cursor: pointer;
+    .row {
+      margin: 0;
+      position: absolute;
+      bottom: 1px;
+      width: 100%;
+
+      .card-img-overlay-info-bar {
+        padding: 10px;
+
+        i {
+          font-size: 1.33rem;
+        }
+
+        a {
+          visibility: hidden;
+        }
+      }
+
+      &:hover {
+        a {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down("sm") {
+  .cloth-col .card-img-overlay .row .card-img-overlay-info-bar {
+    i {
+      font-size: 0.875rem;
+    }
+  }
+  .cloth-row {
+    margin-top: 70px;
+    .cloth-price {
+      font-size: 0.8rem;
+    }
+  }
+
+  .cloth-col {
+    flex: 0 0 33%;
+
+    .card-img-overlay {
+      padding: 0;
+    }
+  }
+}
+
+@include media-breakpoint-up("sm") {
+  app-filter {
+    width: 100%;
+  }
+
+  .cloth-col .card-img-overlay .row .card-img-overlay-info-bar {
+    i {
+      font-size: 1.33rem;
+    }
+  }
+}
+
+@include media-breakpoint-up("md") {
+  .pagination-lg-fixed-top {
+    position: fixed;
+    top: 145px;
+    width: 72%;
+    z-index: 5;
+  }
+
+  .cloth-row {
+    margin-top: 70px;
+  }
+}
+
+@include media-breakpoint-up("lg") {
+  .cloth-row {
+    margin-top: 70px;
+    .cloth-price {
+      font-size: 0.8rem;
+    }
+  }
+}
