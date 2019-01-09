@@ -1,9 +1,9 @@
-<div id="filter">
+<i id="filter">
   <ul class="nav nav-pills justify-content-between">
     <li class="nav-item bg-light w-25 d-lg-none">
-      <div class="dropdown">
-        <button class="btn btn-outline-primary dropdown-toggle w-100 nav-link" data-toggle="dropdown">Relevance</button>
-        <div class="dropdown-menu">
+      <div ngbDropdown class="dropdown">
+        <button ngbDropdownToggle class="btn btn-outline-primary dropdown-toggle w-100 nav-link" data-toggle="dropdown">Relevance</button>
+        <div ngbDropdownMenu class="dropdown-menu">
           <a href="#" class="dropdown-item">Latest</a>
           <a href="#" class="dropdown-item">Price - low to high</a>
           <a href="#" class="dropdown-item">Price - high to low</a>
@@ -11,70 +11,47 @@
       </div>
     </li>
 
-    <li class="nav-item bg-light w-25 d-lg-none"><a class="nav-link btn btn-outline-primary" href="#" data-toggle="modal"
-        data-target="#filterModal2">Filter</a></li>
+    <li class="nav-item bg-light w-25 d-lg-none">
+      <a class="nav-link btn btn-outline-primary" (click)="open(content)">Filter</a>
+    </li>
   </ul>
   <ul class="nav nav-pills justify-content-between d-none d-lg-flex">
     <li class="nav-item bg-light w-100 d-none d-lg-flex">
       <!-- Filter -->
-      <div id="accordion" class="w-100">
-        <div class="card" *ngFor="let filter of filters(); let idx = index;">
-          <div class="card-header">
-            <h5>
-              <a href="#collapse{{ idx }}" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" class="collapsed">
-                {{ filter.name }}
-              </a>
-            </h5>
-          </div>
-
-          <div id="collapse{{ idx }}" class="collapse">
-            <div class="card-body">
-              <div class="custom-control custom-checkbox" *ngFor="let item of filter.items">
-                <input type="checkbox" class="custom-control-input" id="{{ item.filterCode }}">
-                <label class="custom-control-label" for="{{ item.filterCode }}">{{ item.filterName }}</label>
-              </div>              
-            </div>
-          </div>
-        </div>
-      </div>
+      <ngb-accordion id="accordion" class="w-100">
+        <ngb-panel title="{{ filter.name }}" *ngFor="let filter of filters(); let idx = index;">
+          <ng-template ngbPanelContent>
+            <div class="custom-control custom-checkbox" *ngFor="let item of filter.items">
+              <input type="checkbox" class="custom-control-input" id="{{ item.filterCode }}" value="{{ item.filterCode }}">
+              <label class="custom-control-label" for="{{ item.filterCode }}">{{ item.filterName }}</label>
+            </div>              
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
   </ul>
-</div>
+</i>
 
   <!-- Filter modal -->
-  <div class="modal" id="filterModal2">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Filters</h5>
-          <button class="close" data-dismiss="modal">x</button>
-        </div>
-        <div class="modal-body">
-          <div id="accordion2">
-            <div class="card" *ngFor="let filter of filters(); let idx = index;">
-              <div class="card-header">
-                <h5>
-                  <a href="#collapse{{ idx }}{{ idx }}" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" class="collapsed">
-                    {{ filter.name }}
-                  </a>
-                </h5>
-              </div>
-            
-              <div id="collapse{{ idx }}{{ idx }}" class="collapse">
-                <div class="card-body">
-                  <div class="custom-control custom-checkbox" *ngFor="let item of filter.items">
-                    <input type="checkbox" class="custom-control-input" id="{{ item.filterCode }}">
-                    <label class="custom-control-label" for="{{ item.filterCode }}">{{ item.filterName }}</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-outline-primary" data-dismiss="modal">Update Filters</button>
-          <button class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-        </div>
+  <ng-template #content let-modal>
+      <div class="modal-header">
+        <h5 class="modal-title">Filters</h5>
+        <button class="close" (click)="modal.dismiss()" aria-label="Close" type="button">x</button>
       </div>
-    </div>
-  </div>
+      <div class="modal-body">
+        <ngb-accordion id="accordion-modal" class="w-100">
+          <ngb-panel title="{{ filter.name }}" *ngFor="let filter of filters(); let idx = index;">
+            <ng-template ngbPanelContent>
+              <div class="custom-control custom-checkbox" *ngFor="let item of filter.items">
+                <input type="checkbox" class="custom-control-input" id="{{ item.filterCode }}" value="{{ item.filterCode }}">
+                <label class="custom-control-label" for="{{ item.filterCode }}">{{ item.filterName }}</label>
+              </div>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-primary" (click)="modal.close()">Update Filters</button>
+        <button class="btn btn-outline-primary" (click)="modal.close()">Close</button>
+      </div>
+  </ng-template>
   <!-- Eof filter modal -->
