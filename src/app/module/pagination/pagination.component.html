@@ -14,11 +14,7 @@
       <form class="form-inline">
         <label class="mx-1" for="viewSelect">View</label>
         <select class="custom-select" id="viewSelect">
-          <option value="1">60</option>
-          <option value="2">100</option>
-          <option value="3">120</option>
-          <option value="4">180</option>
-          <option value="5">220</option>
+          <option *ngFor="let size of viewSizes();" value="size">{{ size }}</option>
         </select>
 
         <button class="btn btn-ouline-primary rounded-circle mx-1">&#x2190;</button>
