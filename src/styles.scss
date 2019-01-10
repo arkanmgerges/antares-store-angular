@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/scss/bootstrap.scss";
 
+html, body {
+  height: 100%;
+}
+
 #cloth {
   height: 1000px;
 }
@@ -100,5 +104,18 @@
     .cloth-price {
       font-size: 0.8rem;
     }
+  }
+}
+
+.auth-form-wrapper {
+  display: flex;
+  align-items: center;
+  height: 50%;
+
+  .auth-form {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
   }
 }
