@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import * as fromAuthAction from './store/auth.action';
 
 @Component({
   selector: 'app-auth',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
   today: number = Date.now();
-  constructor() { }
+
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
   }
 
+
+  onSignin() {
+    console.log('button clicked');
+    this.store.dispatch(new fromAuthAction.Login());
+  }
 }

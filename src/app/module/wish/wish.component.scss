@@ -1,0 +1,18 @@
+@import "./../../../assets/scss/bootstrap.scss";
+
+.wish-x-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+}
+
+.img-card {
+  width: 40%;
+}
+
+@include media-breakpoint-up("lg") {
+  .img-card {
+    width: 25%;
+  }
+}

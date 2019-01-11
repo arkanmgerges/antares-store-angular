@@ -5,6 +5,7 @@ import { CoreRoutingModule } from './core-routing.module';
 import { ProductModule } from '../product/product.module';
 import { AuthComponent } from './auth/auth.component';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     CoreRoutingModule,
-    ProductModule
+    ProductModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent

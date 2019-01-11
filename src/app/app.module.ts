@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './module/core/core.module';
 import { CartModule } from './module/cart/cart.module';
 import { WishModule } from './module/wish/wish.module';
+import { StoreModule } from '@ngrx/store';
+import { appReducerMap } from './store/app.reducer';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { WishModule } from './module/wish/wish.module';
     AppRoutingModule,
     CoreModule,
     CartModule,
-    WishModule
+    WishModule,
+    StoreModule.forRoot(appReducerMap)
   ],
   providers: [],
   bootstrap: [AppComponent]

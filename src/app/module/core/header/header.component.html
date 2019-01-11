@@ -27,7 +27,8 @@
           <a routerLink="/cart"><i class="far fa-shopping-bag fa-lg text-dark"></i></a>
         </li>
         <li class="nav-item mx-2">
-          <a routerLink="/auth"><i class="far fa-user fa-lg text-dark"></i></a>
+          <a routerLink="/auth" *ngIf="!(isAuth$ | async).isAuthenticated"><i class="far fa-user fa-lg text-dark"></i></a>
+          <a (click)="onLogout()" *ngIf="(isAuth$ | async).isAuthenticated"><i class="far fa-sign-out fa-lg text-dark"></i></a>
         </li>
       </ul>
       <div class="collapse navbar-collapse" id="navbarToolbar">
