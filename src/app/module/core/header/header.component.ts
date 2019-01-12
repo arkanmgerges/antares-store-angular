@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'src/app/store/app.state';
+import { AppState, AUTH_STATE_KEY } from 'src/app/store/app.state';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthState } from '../auth/store/auth.state';
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.isAuth$ = this.store.select('auth');
+    this.isAuth$ = this.store.select(AUTH_STATE_KEY);
   }
 
   onLogout() {

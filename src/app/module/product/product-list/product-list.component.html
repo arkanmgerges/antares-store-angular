@@ -40,10 +40,10 @@
         </div>
         <!-- Eof Pagination -->
         <!-- Cloth -->
-        <div class="cloth-row row justify-content-around mt-50">
+        <div class="cloth-row row justify-content-around mt-50" *ngFor="let product of (products$ | async).products">
           <div class="cloth-col col-lg-3 col-sm-4 px-0">
             <div class="card">
-              <img class="card-img" src="/assets/img/sample.jpg" alt="Card image">
+              <img class="card-img" src="{{ product.photos[0] }}" alt="Card image">
               <div class="card-img-overlay">
                 <div class="row">
                   <div class="col-3 card-img-overlay-info-bar bg-white">
@@ -52,129 +52,7 @@
                     </div>
                   </div>
                   <div class="col-6 bg-white d-flex align-items-center justify-content-center">
-                    <span class="cloth-price">Price $15</span>
-                  </div>
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-right">
-                      <a href="#"><i class="far fa-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="cloth-col col-lg-3 col-sm-4 px-0">
-            <div class="card">
-              <img class="card-img" src="/assets/img/sample.jpg" alt="Card image">
-              <div class="card-img-overlay">
-                <div class="row">
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-left">
-                      <a href="#"><i class="far fa-eye"></i></a>
-                    </div>
-                  </div>
-                  <div class="col-6 bg-white d-flex align-items-center justify-content-center">
-                    <span class="cloth-price">Price $15</span>
-                  </div>
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-right">
-                      <a href="#"><i class="far fa-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="cloth-col col-lg-3 d-none d-lg-flex px-0">
-            <div class="card">
-              <img class="card-img" src="/assets/img/sample.jpg" alt="Card image">
-              <div class="card-img-overlay">
-                <div class="row">
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-left">
-                      <a href="#"><i class="far fa-eye"></i></a>
-                    </div>
-                  </div>
-                  <div class="col-6 bg-white d-flex align-items-center justify-content-center">
-                    <span class="cloth-price">Price $15</span>
-                  </div>
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-right">
-                      <a href="#"><i class="far fa-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="cloth-row row justify-content-around mt-50">
-          <div class="cloth-col col-lg-3 col-sm-4 px-0">
-            <div class="card">
-              <img class="card-img" src="/assets/img/sample.jpg" alt="Card image">
-              <div class="card-img-overlay">
-                <div class="row">
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-left">
-                      <a href="#"><i class="far fa-eye"></i></a>
-                    </div>
-                  </div>
-                  <div class="col-6 bg-white d-flex align-items-center justify-content-center">
-                    <span class="cloth-price">Price $15</span>
-                  </div>
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-right">
-                      <a href="#"><i class="far fa-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="cloth-col col-lg-3 col-sm-4 px-0">
-            <div class="card">
-              <img class="card-img" src="/assets/img/sample.jpg" alt="Card image">
-              <div class="card-img-overlay">
-                <div class="row">
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-left">
-                      <a href="#"><i class="far fa-eye"></i></a>
-                    </div>
-                  </div>
-                  <div class="col-6 bg-white d-flex align-items-center justify-content-center">
-                    <span class="cloth-price">Price $15</span>
-                  </div>
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-right">
-                      <a href="#"><i class="far fa-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="cloth-col col-lg-3 d-none d-lg-flex px-0">
-            <div class="card">
-              <img class="card-img" src="/assets/img/sample.jpg" alt="Card image">
-              <div class="card-img-overlay">
-                <div class="row">
-                  <div class="col-3 card-img-overlay-info-bar bg-white">
-                    <div class="rounded-circle bg-light text-left">
-                      <a href="#"><i class="far fa-eye"></i></a>
-                    </div>
-                  </div>
-                  <div class="col-6 bg-white d-flex align-items-center justify-content-center">
-                    <span class="cloth-price">Price $15</span>
+                    <span class="cloth-price">Price ${{ product.price }}</span>
                   </div>
                   <div class="col-3 card-img-overlay-info-bar bg-white">
                     <div class="rounded-circle bg-light text-right">

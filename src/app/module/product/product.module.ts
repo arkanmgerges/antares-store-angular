@@ -4,6 +4,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductRoutingModule } from './product-routing.module';
 import { FilterModule } from '../filter/filter.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffect } from './store/product.effect';
 
 @NgModule({
   declarations: [ProductListComponent],
@@ -11,7 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     NgbModule,
     ProductRoutingModule,
-    FilterModule
+    FilterModule,
+    EffectsModule.forRoot([ProductEffect]),
   ],
   exports: [ProductListComponent]
 })

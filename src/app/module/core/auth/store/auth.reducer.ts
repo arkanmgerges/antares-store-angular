@@ -6,11 +6,11 @@ const initialState: AuthState = {
 }
 
 export function authReducer(state = initialState, action: AuthAction) {
-    switch(action.type) {
+    switch (action.type) {
         case AuthActions.LOGIN_COMPLETED: {
             return {
                 ...state,
-                isAuthenticated: (<LoginCompletedAction> action).payload
+                isAuthenticated: (<LoginCompletedAction>action).payload
             }
         }
         case AuthActions.LOGOUT: {
@@ -19,7 +19,7 @@ export function authReducer(state = initialState, action: AuthAction) {
                 isAuthenticated: false
             }
         }
-        default: 
-        return state;
+        default:
+            return state;
     }
 }
