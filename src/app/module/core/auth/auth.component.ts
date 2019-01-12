@@ -17,8 +17,7 @@ export class AuthComponent implements OnInit {
   }
 
 
-  onSignin() {
-    console.log('button clicked');
-    this.store.dispatch(new fromAuthAction.Login());
+  onLogin() {
+    this.store.dispatch(new fromAuthAction.LoginAction());
   }
 }

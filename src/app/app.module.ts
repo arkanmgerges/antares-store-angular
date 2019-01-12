@@ -19,7 +19,7 @@ import { appReducerMap } from './store/app.reducer';
     CoreModule,
     CartModule,
     WishModule,
-    StoreModule.forRoot(appReducerMap)
+    StoreModule.forRoot(appReducerMap),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
-    this.store.dispatch(new fromAuthAction.Logout())
+    this.store.dispatch(new fromAuthAction.LogoutAction())
   }
 
 }

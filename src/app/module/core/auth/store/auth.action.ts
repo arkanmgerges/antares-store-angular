@@ -7,20 +7,24 @@ export const AuthActions = {
     LOGIN_COMPLETED: 'LOGIN_COMPLETED',
 }
 
-export class Login implements Action {
-    readonly type: string = AuthActions.LOGIN;
-}
-
-export class LoginCompleted implements Action {
+export class LoginCompletedAction implements Action {
     readonly type: string = AuthActions.LOGIN_COMPLETED;
+
+    constructor(public payload: boolean) { }
 }
 
-export class Logout implements Action {
-    readonly type: string = AuthActions.LOGOUT;
-}
-
-export class LogoutCompleted implements Action {
+export class LogoutCompletedAction implements Action {
     readonly type: string = AuthActions.LOGOUT_COMPLETED;
 }
 
-export type AuthAction = Login | LoginCompleted | Logout | LogoutCompleted;
+export class LoginAction implements Action {
+    readonly type: string = AuthActions.LOGIN;
+}
+
+
+
+export class LogoutAction implements Action {
+    readonly type: string = AuthActions.LOGOUT;
+}
+
+export type AuthAction = LoginCompletedAction | LogoutCompletedAction | LoginAction | LogoutAction;

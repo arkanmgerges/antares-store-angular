@@ -1,4 +1,4 @@
-import { AuthAction, AuthActions } from './auth.action';
+import { AuthAction, AuthActions, LoginCompletedAction } from './auth.action';
 import { AuthState } from './auth.state';
 
 const initialState: AuthState = {
@@ -7,15 +7,13 @@ const initialState: AuthState = {
 
 export function authReducer(state = initialState, action: AuthAction) {
     switch(action.type) {
-        case AuthActions.LOGIN: {
-            console.log('login');
+        case AuthActions.LOGIN_COMPLETED: {
             return {
                 ...state,
-                isAuthenticated: true
+                isAuthenticated: (<LoginCompletedAction> action).payload
             }
         }
         case AuthActions.LOGOUT: {
-            console.log('logout');
             return {
                 ...state,
                 isAuthenticated: false

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { EffectsModule } from '@ngrx/effects';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { CoreRoutingModule } from './core-routing.module';
@@ -6,6 +7,7 @@ import { ProductModule } from '../product/product.module';
 import { AuthComponent } from './auth/auth.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthEffect } from './auth/store/auth.effect';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     CoreRoutingModule,
     ProductModule,
-    FormsModule
+    FormsModule,
+    EffectsModule.forRoot([AuthEffect]),
   ],
   exports: [
     HeaderComponent
